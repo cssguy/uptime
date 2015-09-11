@@ -2,7 +2,8 @@ h1 {
   text-align: center;
 }
 
-.uptime_block {
+.uptime_block,
+.uptime_block1 {
   border: 1px dotted blue;
   width: 50%;
   margin: 0 auto;
