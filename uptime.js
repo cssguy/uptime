@@ -20,9 +20,12 @@ $(".uptime_block").append("<div class='uptime_values'></div>")
 
 var minNumber = 9000;
 var maxNumber = 10000;
+var porog_1 = 94;
+var porog_2 = 96;
 
 var magic = 7;
 var sum = 0;
+
 for (var i = 0; i < magic; i++) 
 {
   var randomNumber = (Math.floor(Math.random()*(maxNumber-minNumber+1)+minNumber))/100;
@@ -36,9 +39,11 @@ for (var i = 0; i < magic; i++)
 var medium_number = sum/magic;
 $(".medium_value").append(medium_number.toFixed(2));
 
-
-
-
-
-
-
+/* Меняем цвет значений в зависимости от результата */
+if (medium_number < porog_1) {
+  $(".medium_value").addClass("less_then_94");
+} else if (medium_number < porog_2 && medium_number > porog_1) {
+  $(".medium_value").addClass("less_then_96");
+} else {
+  $(".medium_value").addClass("less_then_100");
+}
