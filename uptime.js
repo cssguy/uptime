@@ -9,18 +9,20 @@ $(".uptime_block").append("<p class='medium_value'></p>");
 /* Создаем блок uptime_values */
 $(".uptime_block").append("<div class='uptime_values'></div>")
 
+/* Создаем блок uptime_graph */
+$(".uptime_block").append("<div class='uptime_graph'></div>");
 
 /* Генерируем случайное значение от 90 до 100 */
 
 var minNumber = 90;
-var maxNumber = 100;
+var maxNumber = 99;
 
 var magic = 7;
 var sum = 0;
 
 var defineColor = function(number, elm)
 {
-  var porog_1 = 94;
+  var porog_1 = 93;
   var porog_2 = 96;
   var porog_3 = 99;
 
@@ -35,6 +37,7 @@ var defineColor = function(number, elm)
 }
 
   var spanContainer = $(".uptime_values");
+  var chart_elm = $(".uptime_graph");
 
 for (var i = 0; i < magic; i++) 
 {
@@ -47,6 +50,11 @@ for (var i = 0; i < magic; i++)
   defineColor(randomNumber, span);
 
   sum += randomNumber;
+
+  chart_elm.append("<div></div>");
+
+  var chartDiv = chart_elm.find("div").last();
+  chartDiv.css("height", randomNumber.toFixed(2) + "%");
 }
 
 var medium_value_elem = $(".medium_value");
@@ -56,6 +64,7 @@ var medium_number = sum/magic;
 medium_value_elem.append(medium_number.toFixed(2));
 
 defineColor(medium_number, medium_value_elem);
+
 
 
 

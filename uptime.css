@@ -24,22 +24,18 @@ h1 {
 }
 
 .uptime_graph {
-  display: inline-block;
+  display: block;
   margin: 10px auto 10px;
+  height: 50px;
 }
 
 .uptime_graph div {
   width: 20px;
-  height: 40px;
+  height: 100%;
   background: blue;
-  float: left;
+  display: inline-block;
+  vertical-align: bottom;
   margin: 0 2px;
-}
-
-.uptime_graph:after {
-  content: '';
-  clear: both;
-  display: table;
 }
 
 .less_then_100 {
